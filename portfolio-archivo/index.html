@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Joaquín Lobos — Archivo</title>
+    <meta name="description"
+        content="Portfolio de Joaquín Lobos, diseñador multidisciplinario en Valencia: motion graphics, 3D y diseño editorial. Buscando prácticas para 2026." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="css/archivo.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+    <link rel="icon" type="image/svg+xml" href="media/favicon.svg">
+    <link rel="preload" as="image" href="media/image-1.avif" type="image/avif">
+
+    <script defer src="js/archivo.js"></script>
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Joaquín Lobos — Archivo" />
+    <meta property="og:description" content="Diseñador multidisciplinario. Motion, 3D y editorial. Buscando prácticas para 2026." />
+</head>
+
+<body>
+
+    <!--/ Header -->
+
+    <header class="header">
+        <nav class="header__nav block" aria-label="Principal">
+            <a href="#top" class="header__logo">Joaquín Lobos<span class="header__logo-extra"> — Archivo</span></a>
+            <a href="#proyectos">Proyectos (04)</a>
+            <a href="#laboratorio">Laboratorio</a>
+            <a href="#sobre-mi">Sobre mí</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <!--/ Header -->
+
+    <main id="top">
+
+        <!-- Intro -->
+
+                <section class="intro block">
+
+            <h1 class="hero">
+                <span class="hero__w"><span class="hero__wi hero__dot" style="--i:0" aria-hidden="true"></span></span>
+                <span class="hero__s">
+                    <span class="hero__w"><span class="hero__wi" style="--i:1">◉ Joaquín</span></span>
+                    <span class="hero__w"><span class="hero__wi" style="--i:2">Lobos</span></span>
+                    <span class="hero__w"><span class="hero__wi" style="--i:3">es</span></span>
+                    <span class="hero__w"><span class="hero__wi" style="--i:4">un</span></span>
+                </span>
+                <b>
+                    <span class="hero__w"><span class="hero__wi" style="--i:5">diseñador</span></span>
+                </b>
+                <span class="hero__s">
+                    <span class="hero__w"><span class="hero__wi" style="--i:6">multidisciplinario</span></span>
+                    <span class="hero__w"><span class="hero__wi" style="--i:7">que</span></span>
+                    <span class="hero__w"><span class="hero__wi" style="--i:8">mezcla</span></span>
+                </span>
+                <b>
+                    <span class="hero__w"><span class="hero__wi" style="--i:9">motion,</span></span>
+                    <span class="hero__w"><span class="hero__wi" style="--i:10">3D</span></span>
+                </b>
+                <span class="hero__s">
+                    <span class="hero__w"><span class="hero__wi" style="--i:11">y</span></span>
+                </span>
+                <b>
+                    <span class="hero__w"><span class="hero__wi" style="--i:12">editorial</span></span>
+                </b>
+                <span class="hero__s">
+                    <span class="hero__w"><span class="hero__wi" style="--i:13">para</span></span>
+                    <span class="hero__w"><span class="hero__wi" style="--i:14">dar</span></span>
+                    <span class="hero__w"><span class="hero__wi" style="--i:15">forma</span></span>
+                    <span class="hero__w"><span class="hero__wi" style="--i:16">a</span></span>
+                    <span class="hero__w"><span class="hero__wi" style="--i:17">ideas</span></span>
+                    <span class="hero__w"><span class="hero__wi" style="--i:18">con</span></span>
+                </span>
+                <b>
+                    <span class="hero__w"><span class="hero__wi" style="--i:19">✜ personalidad</span></span>
+                </b>
+            </h1>
+        </section>
+
+        <!-- Proyectos -->
+
+        <section class="projects block" id="proyectos" aria-labelledby="projects-title">
+            <h2 class="sr-only" id="projects-title">Proyectos</h2>
+
+            <table class="archive">
+                <thead>
+                    <tr>
+                        <th scope="col">Nº</th>
+                        <th scope="col">Vista</th>
+                        <th scope="col">Proyecto</th>
+                        <th scope="col" class="archive__opt">Tipo</th>
+                        <th scope="col" class="archive__opt archive__opt--wide">Herramientas</th>
+                        <th scope="col" class="archive__year">Año</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--
+                        Cada fila guarda los datos de su ficha en atributos data-*.
+                        Para añadir un proyecto: copia una fila, cambia los datos y las imágenes.
+                    -->
+                    <tr class="archive__row is-active"
+                        data-num="001"
+                        data-title="Meditation attempt"
+                        data-img="media/image-1"
+                        data-desc="Vídeo experimental que explora la meditación frente al caos urbano y mental. A través del motion graphics, glitches visuales y rupturas del entorno, la pieza construye una narrativa que transita entre la calma, la tensión y el colapso emocional."
+                        data-type="Vídeo experimental"
+                        data-role="Concepto, animación y edición"
+                        data-software="After Effects, Premiere"
+                        data-year="2025">
+                        <td>001</td>
+                        <td><picture><source srcset="media/thumb-1.webp" type="image/webp"><img class="archive__thumb" src="media/thumb-1.jpg" alt="" width="56" height="38"></picture></td>
+                        <td><button type="button" class="archive__btn" aria-controls="preview">Meditation attempt</button></td>
+                        <td class="archive__opt">Vídeo experimental</td>
+                        <td class="archive__opt archive__opt--wide">After Effects, Premiere</td>
+                        <td class="archive__year">2025</td>
+                    </tr>
+                    <tr class="archive__row"
+                        data-num="002"
+                        data-title="Nokia 3310 ads"
+                        data-img="media/image-2"
+                        data-desc="Animación 3D desarrollada en Cinema 4D que enfrenta al icónico Nokia 3310 contra el Mjolnir para poner a prueba su resistencia «indestructible». Con simulaciones de fractura, iluminación cinematográfica y modelado de objetos, la pieza construye una escena épica donde todo colapsa ante el Nokia."
+                        data-type="Animación 3D"
+                        data-role="Concepto, modelado y animación"
+                        data-software="Cinema 4D"
+                        data-year="2025">
+                        <td>002</td>
+                        <td><picture><source srcset="media/thumb-2.webp" type="image/webp"><img class="archive__thumb" src="media/thumb-2.jpg" alt="" width="56" height="38"></picture></td>
+                        <td><button type="button" class="archive__btn" aria-controls="preview">Nokia 3310 ads</button></td>
+                        <td class="archive__opt">Animación 3D</td>
+                        <td class="archive__opt archive__opt--wide">Cinema 4D</td>
+                        <td class="archive__year">2025</td>
+                    </tr>
+                    <tr class="archive__row"
+                        data-num="003"
+                        data-title="Mathrock — book"
+                        data-img="media/image-3"
+                        data-desc="Proyecto editorial inspirado en el math rock, donde la complejidad rítmica del género se traduce en composiciones dinámicas, tensión tipográfica y una narrativa visual en la que las imágenes predominan sobre el texto."
+                        data-type="Diseño editorial"
+                        data-role="Concepto, maquetación y tipografía"
+                        data-software="InDesign"
+                        data-year="2026">
+                        <td>003</td>
+                        <td><picture><source srcset="media/thumb-3.webp" type="image/webp"><img class="archive__thumb" src="media/thumb-3.jpg" alt="" width="56" height="38"></picture></td>
+                        <td><button type="button" class="archive__btn" aria-controls="preview">Mathrock — book</button></td>
+                        <td class="archive__opt">Diseño editorial</td>
+                        <td class="archive__opt archive__opt--wide">InDesign</td>
+                        <td class="archive__year">2026</td>
+                    </tr>
+                    <tr class="archive__row archive__row--soon"
+                        data-num="004"
+                        data-title="Próximamente"
+                        data-img="media/image-wip"
+                        data-fit="contain"
+                        data-desc="Nuevo proyecto en proceso. Muy pronto, aquí."
+                        data-type="En proceso"
+                        data-role="—"
+                        data-software="—"
+                        data-year="2026">
+                        <td>004</td>
+                        <td><picture><source srcset="media/thumb-wip.webp" type="image/webp"><img class="archive__thumb" src="media/thumb-wip.jpg" alt="" width="56" height="38"></picture></td>
+                        <td><button type="button" class="archive__btn" aria-controls="preview">Próximamente</button></td>
+                        <td class="archive__opt">En proceso</td>
+                        <td class="archive__opt archive__opt--wide">—</td>
+                        <td class="archive__year">2026</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Vista previa del proyecto seleccionado (la actualiza archivo.js) -->
+
+            <article class="preview" id="preview" aria-live="polite">
+                <div class="preview__info">
+                    <h3 class="preview__title"><span data-p="num">001</span> — <span data-p="title">Meditation attempt</span></h3>
+                    <p class="preview__desc" data-p="desc">
+                        Vídeo experimental que explora la meditación frente al caos urbano y mental. A través del motion
+                        graphics, glitches visuales y rupturas del entorno, la pieza construye una narrativa que
+                        transita entre la calma, la tensión y el colapso emocional.
+                    </p>
+                    <dl class="preview__sheet">
+                        <div><dt>Rol</dt><dd data-p="role">Concepto, animación y edición</dd></div>
+                        <div><dt>Software</dt><dd data-p="software">After Effects, Premiere</dd></div>
+                        <div><dt>Tipo</dt><dd data-p="type">Vídeo experimental</dd></div>
+                        <div><dt>Año</dt><dd data-p="year">2025</dd></div>
+                    </dl>
+                </div>
+                <picture class="preview__media">
+                    <source data-p="avif" srcset="media/image-1.avif" type="image/avif">
+                    <source data-p="webp" srcset="media/image-1.webp" type="image/webp">
+                    <img data-p="img" src="media/image-1.jpg" alt="Meditation attempt" width="2000" height="1125">
+                </picture>
+            </article>
+        </section>
+
+        <!-- Laboratorio -->
+
+        <section class="section block" id="laboratorio">
+            <div class="section__head">
+                <h2>Laboratorio</h2>
+                <span>L-01 → L-04</span>
+            </div>
+            <div class="lab">
+                <figure class="lab__item">
+                    <img src="media/gif-1.webp" alt="Collage animado" loading="lazy" width="384" height="280">
+                    <figcaption><span>L-01 Collage animado</span><span>2025</span></figcaption>
+                </figure>
+                <figure class="lab__item">
+                    <img src="media/gif-2.webp" alt="Test de fractura en 3D" loading="lazy" width="384" height="280">
+                    <figcaption><span>L-02 Test de fractura</span><span>2025</span></figcaption>
+                </figure>
+                <figure class="lab__item">
+                    <img src="media/gif-3.webp" alt="Mockup editorial" loading="lazy" width="384" height="280">
+                    <figcaption><span>L-03 Mockup editorial</span><span>2026</span></figcaption>
+                </figure>
+                <figure class="lab__item">
+                    <picture>
+                        <source srcset="media/image-1.avif" type="image/avif">
+                        <source srcset="media/image-1.webp" type="image/webp">
+                        <img src="media/image-1.jpg" alt="Recortes de collage" loading="lazy" style="object-position: 20% center">
+                    </picture>
+                    <figcaption><span>L-04 Recortes</span><span>2026</span></figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- Sobre mí -->
+
+        <section class="section block" id="sobre-mi">
+            <div class="section__head">
+                <h2>Sobre mí</h2>
+                <span>CV resumido</span>
+            </div>
+            <div class="about">
+                <picture class="about__photo">
+                    <source srcset="media/Foto-perfil.avif" type="image/avif">
+                    <source srcset="media/Foto-perfil.webp" type="image/webp">
+                    <img src="media/Foto-perfil.jpg" alt="Retrato de Joaquín Lobos" loading="lazy" width="800" height="800">
+                </picture>
+                <div class="about__text">
+                    <p>
+                        Soy Joaquín Lobos, diseñador multidisciplinario en Valencia. Me interesa la forma en que una
+                        idea se transforma en experiencia: <mark>composición, tipografía, color y movimiento</mark>.
+                    </p>
+                    <p>
+                        Entiendo cada proyecto como una oportunidad para aprender y superar retos creativos y
+                        técnicos. Ahora mismo busco mis primeras prácticas.
+                    </p>
+                </div>
+                <dl class="cv">
+                    <div><dt>2024–26</dt><dd>Título superior en diseño digital — CEI Valencia</dd></div>
+                    <div><dt>2026</dt><dd>Máster de diseño web — CEI Valencia</dd></div>
+                    <div><dt>Motion</dt><dd>After Effects, Premiere</dd></div>
+                    <div><dt>3D</dt><dd>Cinema 4D</dd></div>
+                    <div><dt>Editorial</dt><dd>InDesign</dd></div>
+                    <div><dt>Web</dt><dd>Figma, HTML, CSS, JS, WordPress</dd></div>
+                </dl>
+            </div>
+        </section>
+
+        <!-- Contacto -->
+
+        <section class="contact block" id="contacto">
+            <h2 class="contact__label">Contacto</h2>
+            <a class="contact__big contact__mail is-active" href="mailto:joaquin.lob@gmail.com">joaquin.lob@gmail.com</a>
+            <a class="contact__big contact__tel" href="tel:+34673238809">+34 673 238 809</a>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+
+    <footer class="footer block">
+        <a href="https://www.instagram.com/lobosmja">Instagram</a>
+        <a href="https://www.behance.net/gallery/250842169/PORTAFOLIO-2026-JOAQUIN-LOBOS">Behance</a>
+        <a href="https://www.linkedin.com/in/joaqu%C3%ADn-andr%C3%A9s-lobos-molina-a9803b378/">LinkedIn</a>
+        <a href="#" aria-disabled="true">Descargar CV (PDF)</a>
+        <p>© Joaquín Lobos 2026</p>
+    </footer>
+
+</body>
+
+</html>
