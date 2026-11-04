@@ -214,7 +214,9 @@ mark {
 /* Tabla de proyectos */
 
 .archive {
-    width: 100%;
+    width: calc(100% + 1.5rem);
+    margin-left: -.75rem;
+    margin-right: -.75rem;
     border-collapse: collapse;
     font: var(--font-sm);
     text-transform: uppercase;
@@ -255,7 +257,7 @@ mark {
 }
 .archive__year {
     text-align: right;
-    width: 4rem;
+    width: 0rem;
 }
 
 .archive__thumb {
@@ -458,15 +460,10 @@ mark {
     margin-top: var(--space-section);
     padding-top: var(--space-lg);
     position: relative;
+    border-top: 1px solid var(--color-ink);
 
-    &::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: var(--gutter);
-        right: var(--gutter);
-        border-top: 1px solid var(--color-ink);
-    }
+
+    
 }
 
 .contact__label {
@@ -538,21 +535,24 @@ mark {
     font: var(--font-xs);
     text-transform: uppercase;
     position: relative;
+    border-top: 1px solid var(--color-ink);
 
-    &::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: var(--gutter);
-        right: var(--gutter);
-        border-top: 1px solid var(--color-ink);
-    }
+
 
     & a:hover {
         background-color: var(--color-ink);
         color: var(--color-paper);
     }
 }
+
+.footer__left {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    width: 50%;
+}
+
+
 
 /* -------------------------------Responsive--------------------------------- */
 
@@ -584,10 +584,10 @@ mark {
     .about {
         grid-template-columns: 14rem 1fr;
     }
-
     .cv {
-        grid-column: 1 / -1;
+        grid-column: 1/-1;
     }
+
 }
 
 /* Mobile */
@@ -662,9 +662,15 @@ mark {
     }
 
     .footer {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        row-gap: var(--space-sm);
+        display: flex;
+        flex-direction: column;
+    }
+    .footer__left{
+        width: 100%;
+    }
+    .footer__right{
+        width: 100%;
+
     }
 }
 
