@@ -28,26 +28,22 @@ if (rows.length > 0 && preview) {
     // Huecos de la vista previa que se rellenan con los datos de cada fila
     const field = (name) => preview.querySelector(`[data-p="${name}"]`);
 
-    const media = preview.querySelector('.preview__media');
-    const sourceAvif = field('avif');
-    const sourceWebp = field('webp');
-    const image = field('img');
+    const video = preview.querySelector('.preview__media');
 
     let current = document.querySelector('.archive__row.is-active');
 
-    // Precarga las imágenes grandes cuando el navegador está libre,
-    // para que el cambio de proyecto sea instantáneo
-    const preloadImages = () => {
+    // Precarga los pósters (primer fotograma de cada GIF) cuando el navegador está libre:
+    // al cambiar de proyecto se ven al instante mientras carga el vídeo
+    const preloadPosters = () => {
         rows.forEach(row => {
-            const img = new Image();
-            img.src = `${row.dataset.img}.avif`;
+            new Image().src = row.dataset.poster;
         });
     };
 
     if ('requestIdleCallback' in window) {
-        requestIdleCallback(preloadImages);
+        requestIdleCallback(preloadPosters);
     } else {
-        window.addEventListener('load', () => setTimeout(preloadImages, 1000));
+        window.addEventListener('load', () => setTimeout(preloadPosters, 1000));
     }
 
     function showProject(row) {
@@ -72,19 +68,18 @@ if (rows.length > 0 && preview) {
         field('type').textContent = data.type;
         field('year').textContent = data.year;
 
-        // Cambio de imagen con un pequeño fundido
-        media.classList.add('is-loading');
-        media.classList.toggle('is-contain', data.fit === 'contain');
+        // Cambio del GIF (vídeo en bucle). Si el proyecto no tiene vídeo, se ve solo el póster
+        video.classList.toggle('is-contain', data.fit === 'contain');
+        video.poster = data.poster;
+        video.setAttribute('aria-label', data.title);
 
-        sourceAvif.srcset = `${data.img}.avif`;
-        sourceWebp.srcset = `${data.img}.webp`;
-        image.src = `${data.img}.jpg`;
-        image.alt = data.title;
+        if (data.video) {
+            video.src = data.video;   // con "autoplay" empieza solo
+        } else {
+            video.removeAttribute('src');
+            video.load();             // vacía el vídeo y deja el póster
+        }
     }
-
-    image.addEventListener('load', () => {
-        media.classList.remove('is-loading');
-    });
 
     // Ratón con hover: se actualiza al pasar por encima
     const canHover = window.matchMedia('(hover: hover)').matches;
@@ -111,6 +106,8 @@ if (rows.length > 0 && preview) {
     });
 }
 
+
+/*---Contacto: el fondo se queda en el último enlace tocado---*/
 
 const contactLinks = document.querySelectorAll('.contact__big');
 
