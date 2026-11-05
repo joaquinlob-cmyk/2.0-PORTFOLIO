@@ -99,6 +99,13 @@ if (rows.length > 0 && preview) {
         }
 
         row.addEventListener('click', () => {
+            // Con ratón: el clic abre la página del proyecto (la vista previa ya se vio al pasar por encima).
+            // En móvil: el primer toque muestra la vista previa y el segundo abre el proyecto.
+            if ((canHover || row === current) && row.dataset.page) {
+                location.href = row.dataset.page;
+                return;
+            }
+
             showProject(row);
 
             // En móvil, la vista previa queda debajo de la tabla: la llevamos a la vista
@@ -107,10 +114,15 @@ if (rows.length > 0 && preview) {
             }
         });
 
-        // Teclado: el botón de cada fila también selecciona el proyecto
+        // Teclado: al llegar con Tab al botón de una fila, se muestra su vista previa
+        // (solo con teclado: con ratón o dedo el foco no debe adelantarse al clic)
         const button = row.querySelector('.archive__btn');
         if (button) {
-            button.addEventListener('focus', () => showProject(row));
+            button.addEventListener('focus', () => {
+                if (button.matches(':focus-visible')) {
+                    showProject(row);
+                }
+            });
         }
     });
 }

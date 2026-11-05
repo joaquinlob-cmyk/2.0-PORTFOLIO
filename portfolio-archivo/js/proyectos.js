@@ -29,6 +29,9 @@ const PROYECTOS = [
         // (02) Resultado
         resultado: [
             { img: 'media/gif-1.jpg', texto: 'Fotograma' },
+            { img: 'media/image-1.jpg', texto: 'Collage' },
+            { img: 'media/image-1.jpg', texto: 'Collage' },
+            { img: 'media/image-1.jpg', texto: 'Collage' },
             { img: 'media/image-1.jpg', texto: 'Collage' }
         ],
 
@@ -58,7 +61,8 @@ const PROYECTOS = [
 
         resultado: [
             { img: 'media/gif-2.jpg', texto: 'Fotograma' },
-            { img: 'media/image-2.jpg', texto: 'Render' }
+            { img: 'media/image-2.jpg', texto: 'Render' },
+            
         ],
 
         ficha: [
@@ -85,8 +89,11 @@ const PROYECTOS = [
         publico: 'Escribe aquí a quién va dirigido el libro y cómo eso influyó en tus decisiones.',
 
         resultado: [
-            { img: 'media/image-3.jpg', texto: 'Mockup' },
-            { img: 'media/gif-3.jpg', texto: 'Portada' }
+            { img: 'media/image-3.jpg', texto: '' },
+            { img: 'media/gif-3.jpg', texto: '' },
+            { img: 'media/gif-3.jpg', texto: '' },
+            { img: 'media/gif-3.jpg', texto: '' },
+            { img: 'media/gif-3.jpg', texto: '' }
         ],
 
         ficha: [

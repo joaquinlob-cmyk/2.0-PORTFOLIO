@@ -142,12 +142,20 @@ mark {
     }
 }
 
-.header__clock {
-    white-space: nowrap;
+.header__projects {
+    display: inline-flex;
+    align-items: center;
+
+    /* Fondo más largo que el ojo, sin mover nada */
+    padding: .3rem .6rem;
+    margin: -.3rem -.6rem;
+    
 }
 
-.header__clock time {
-    font-variant-numeric: tabular-nums;
+.header__icon {
+    display: block;
+    height: 1.5em;
+    width: auto;
 }
 
 /* Intro */
@@ -309,7 +317,9 @@ mark {
     grid-template-columns: 1fr 2fr;
     gap: var(--space-lg);
     margin-top: var(--space-lg);
+    
 }
+
 
 .preview__title {
     font: var(--font-sm);
@@ -388,6 +398,9 @@ mark {
     }
 }
 
+.preview__info {
+    align-self: end;
+}
 /* Laboratorio */
 
 .lab {

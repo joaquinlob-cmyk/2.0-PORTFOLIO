@@ -1,15 +1,11 @@
 /*---Plantilla de proyecto: rellena proyecto.html con los datos de proyectos.js---*/
 
 // 1. Qué proyecto se pide: proyecto.html?id=002 → "002"
+//    Si no hay id (o no existe), se muestra el primero de la lista
 const projectId = new URLSearchParams(location.search).get('id');
-const project = PROYECTOS.find(item => item.id === projectId);
+const project = PROYECTOS.find(item => item.id === projectId) || PROYECTOS[0];
 
-if (!project) {
-    // Si el id no existe, vuelve al archivo
-    location.replace('index.html#proyectos');
-} else {
-    fillProject(project);
-}
+fillProject(project);
 
 function fillProject(data) {
 
