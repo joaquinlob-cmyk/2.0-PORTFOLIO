@@ -29,6 +29,7 @@ if (rows.length > 0 && preview) {
     const field = (name) => preview.querySelector(`[data-p="${name}"]`);
 
     const video = preview.querySelector('.preview__media');
+    const projectLink = preview.querySelector('.preview__link');
 
     let current = document.querySelector('.archive__row.is-active');
 
@@ -79,6 +80,14 @@ if (rows.length > 0 && preview) {
             video.removeAttribute('src');
             video.load();             // vacía el vídeo y deja el póster
         }
+
+        // Enlace a la página del proyecto (se oculta si aún no tiene página)
+        if (data.page) {
+            projectLink.href = data.page;
+            projectLink.hidden = false;
+        } else {
+            projectLink.hidden = true;
+        }
     }
 
     // Ratón con hover: se actualiza al pasar por encima
@@ -106,8 +115,6 @@ if (rows.length > 0 && preview) {
     });
 }
 
-
-/*---Contacto: el fondo se queda en el último enlace tocado---*/
 
 const contactLinks = document.querySelectorAll('.contact__big');
 
