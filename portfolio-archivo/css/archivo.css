@@ -607,6 +607,11 @@ mark {
         display: block;
     }
 
+    /* En la página de proyecto el ojo se quita: solo logo y "Menú" */
+    .header--project .header__projects {
+        display: none;
+    }
+
     /* El desplegable cuelga justo debajo del header */
     .header__menu {
         display: flex;
@@ -822,19 +827,40 @@ mark {
     grid-template-columns: repeat(4, 1fr);
     text-transform: uppercase;
 
+    /* Cada dato es una columna: el dd crece para que todas las líneas
+       de abajo queden a la misma altura aunque un texto ocupe dos líneas */
+    & div {
+        display: flex;
+        flex-direction: column;
+    }
+
+    & dt,
+    & dd {
+        /* Separación entre columnas sin cortar las líneas */
+        padding-right: var(--space-md);
+    }
+
     & dt {
-        padding: .375rem 0;
+        padding-top: .375rem;
+        padding-bottom: .375rem;
         color: var(--color-muted);
         border-bottom: 1px solid var(--color-ink);
     }
 
     & dd {
-        padding: .75rem 0;
+        flex: 1;
+        padding-top: .75rem;
+        padding-bottom: .75rem;
         border-bottom: 1px solid var(--color-line);
     }
 
     & div:last-child {
         text-align: right;
+
+        & dt,
+        & dd {
+            padding-right: 0;
+        }
     }
 }
 
@@ -919,15 +945,11 @@ mark {
 
 .specs {
     font: var(--font-xs);
-    display: flex;
-    flex-direction: column;
     text-transform: uppercase;
-    
 
     & div {
         display: grid;
-        align-content: space-between;
-        grid-template-columns: 1fr 2fr;
+        grid-template-columns: 1fr 1fr;
         gap: var(--space-sm);
         padding: .5625rem 0;
         border-top: 1px solid var(--color-line);
@@ -939,6 +961,11 @@ mark {
 
     & dt {
         color: var(--color-muted);
+    }
+
+    /* Los créditos van a la derecha, alineados con el título "Créditos" */
+    & dd {
+        text-align: right;
     }
 }
 
@@ -987,6 +1014,21 @@ mark {
     .next__img {
         width: 12rem;
     }
+
+    /* Ficha corta en 2 × 2: Tipo · Rol / Software · Año */
+    .facts {
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: var(--space-lg);
+
+        & div:nth-child(even) {
+            text-align: right;
+
+            & dt,
+            & dd {
+                padding-right: 0;
+            }
+        }
+    }
 }
 
 @media (max-width: 40rem) {
@@ -1000,25 +1042,12 @@ mark {
         display: none;
     }
 
-    .facts {
-        grid-template-columns: repeat(2, 1fr);
-
-        & div:last-child {
-            text-align: left;
-        }
-    }
-
     .project-media {
         aspect-ratio: 4 / 3;
     }
 
     .gallery {
         grid-template-columns: 1fr;
-    }
-
-    .specs div {
-        grid-template-columns: 1fr;
-        gap: .125rem;
     }
 
     .next {
