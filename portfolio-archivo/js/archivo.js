@@ -1,3 +1,50 @@
+/*---Menú desplegable (tablet y móvil)---*/
+
+const header = document.querySelector('.header');
+const menuToggle = document.querySelector('.header__toggle');
+
+if (header && menuToggle) {
+    const menu = document.getElementById(menuToggle.getAttribute('aria-controls'));
+
+    const setMenu = (open) => {
+        header.classList.toggle('is-open', open);
+        menuToggle.setAttribute('aria-expanded', open);
+        menuToggle.textContent = open ? 'Cerrar' : 'Menú';
+    };
+
+    menuToggle.addEventListener('click', () => {
+        setMenu(menuToggle.getAttribute('aria-expanded') !== 'true');
+    });
+
+    // Al elegir una sección, el menú se cierra
+    menu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => setMenu(false));
+    });
+
+    // Clic fuera del header → cerrar
+    document.addEventListener('click', (event) => {
+        if (!header.contains(event.target)) {
+            setMenu(false);
+        }
+    });
+
+    // Tecla Escape → cerrar y devolver el foco al botón
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && header.classList.contains('is-open')) {
+            setMenu(false);
+            menuToggle.focus();
+        }
+    });
+
+    // Si la pantalla pasa a escritorio con el menú abierto, se reinicia
+    window.matchMedia('(min-width: 64.0625rem)').addEventListener('change', (event) => {
+        if (event.matches) {
+            setMenu(false);
+        }
+    });
+}
+
+
 /*---Reloj de Valencia---*/
 
 const clock = document.querySelector('[data-clock]');

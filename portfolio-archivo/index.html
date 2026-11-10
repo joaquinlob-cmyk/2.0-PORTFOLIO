@@ -50,9 +50,20 @@
             />
           </svg>
         </a>
-        <a href="#laboratorio">proyectos</a>
-        <a href="#sobre-mi">Sobre mí</a>
-        <a href="#contacto">Contacto</a>
+        <button
+          type="button"
+          class="header__toggle"
+          aria-expanded="false"
+          aria-controls="menu"
+        >
+          Menú
+        </button>
+        <!-- En escritorio los enlaces van en línea; en tablet y móvil son un desplegable -->
+        <div class="header__menu" id="menu">
+          <a href="#laboratorio">proyectos</a>
+          <a href="#sobre-mi">Sobre mí</a>
+          <a href="#contacto">Contacto</a>
+        </div>
       </nav>
     </header>
 

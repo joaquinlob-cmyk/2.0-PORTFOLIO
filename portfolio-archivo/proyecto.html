@@ -42,9 +42,15 @@
             />
           </svg>
         </a>
-            <a href="index.html#laboratorio">Proyectos</a>
-            <a href="index.html#sobre-mi">Sobre mí</a>
-            <a href="#contacto">Contacto</a>
+            <button type="button" class="header__toggle" aria-expanded="false" aria-controls="menu">
+                Menú
+            </button>
+            <!-- En escritorio los enlaces van en línea; en tablet y móvil son un desplegable -->
+            <div class="header__menu" id="menu">
+                <a href="index.html#laboratorio">Proyectos</a>
+                <a href="index.html#sobre-mi">Sobre mí</a>
+                <a href="#contacto">Contacto</a>
+            </div>
         </nav>
     </header>
 
@@ -92,21 +98,20 @@
             <div class="block">
                 <div class="section__head">
                     <h2>(01) Brief</h2>
-                    <span>Contexto · por qué · para quién</span>
                 </div>
                 <div class="brief">
                     <div class="brief__item">
-                        <p class="brief__key"><span>01 — Contexto</span><span>Qué es</span></p>
+                        <p class="brief__key"><span>01 — Contexto</span></p>
                         <h3>De dónde sale</h3>
                         <p data-campo="contexto"></p>
                     </div>
                     <div class="brief__item">
-                        <p class="brief__key"><span>02 — Objetivo</span><span>Por qué</span></p>
+                        <p class="brief__key"><span>02 — Objetivo</span></p>
                         <h3>Qué quería conseguir</h3>
                         <p data-campo="porque"></p>
                     </div>
                     <div class="brief__item">
-                        <p class="brief__key"><span>03 — Público</span><span>Para quién</span></p>
+                        <p class="brief__key"><span>03 — Público</span></p>
                         <h3>A quién va dirigido</h3>
                         <p data-campo="publico"></p>
                     </div>
