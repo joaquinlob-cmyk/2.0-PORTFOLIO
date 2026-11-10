@@ -131,6 +131,7 @@ mark {
     font: var(--font-xs);
     text-transform: uppercase;
     border-bottom: 1px solid var(--color-ink);
+    
 
     & a {
         transition: opacity .2s;
@@ -147,8 +148,10 @@ mark {
     align-items: center;
 
     /* Fondo más largo que el ojo, sin mover nada */
-    padding: .3rem .6rem;
-    margin: -.3rem -.6rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 1px;
+    padding-bottom: 1px;
     
 }
 
