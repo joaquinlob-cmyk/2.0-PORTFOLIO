@@ -17,8 +17,8 @@ const PROYECTOS = [
         software: 'After Effects, Premiere',
         anio: '2025',
 
-        // Medio principal (vídeo en bucle + primer fotograma)
-        video: 'media/gif-1.mp4',
+        // Main media (GIF + its first frame)
+        gif: 'media/gif-1.gif',
         poster: 'media/gif-1.jpg',
 
         // (01) Brief
@@ -52,7 +52,7 @@ const PROYECTOS = [
         software: 'Cinema 4D',
         anio: '2025',
 
-        video: 'media/gif-2.mp4',
+        gif: 'media/gif-2.gif',
         poster: 'media/gif-2.jpg',
 
         contexto: 'Animación 3D desarrollada en Cinema 4D que enfrenta al icónico Nokia 3310 contra el Mjolnir para poner a prueba su resistencia «indestructible». Con simulaciones de fractura, iluminación cinematográfica y modelado de objetos, la pieza construye una escena épica donde todo colapsa ante el Nokia.',
@@ -81,7 +81,7 @@ const PROYECTOS = [
         software: 'InDesign',
         anio: '2026',
 
-        video: 'media/gif-3.mp4',
+        gif: 'media/gif-3.gif',
         poster: 'media/gif-3.jpg',
 
         contexto: 'Proyecto editorial inspirado en el math rock, donde la complejidad rítmica del género se traduce en composiciones dinámicas, tensión tipográfica y una narrativa visual en la que las imágenes predominan sobre el texto.',

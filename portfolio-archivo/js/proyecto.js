@@ -19,9 +19,9 @@ function fillProject(data) {
 
     // 3. Vídeo principal (GIF en bucle)
     const media = document.querySelector('[data-media]');
-    media.poster = data.poster;
-    media.src = data.video;
-    media.setAttribute('aria-label', data.titulo);
+    media.style.backgroundImage = `url(${data.poster})`;
+    media.src = data.gif;
+    media.alt = data.titulo;
 
     // 4. Resultado: una figura por imagen
     const gallery = document.querySelector('[data-resultado]');

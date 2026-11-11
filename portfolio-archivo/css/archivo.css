@@ -878,6 +878,9 @@ mark {
     object-fit: cover;
     margin-top: 1.75rem;
     background-color: #F3F3F3;
+    /* First frame of the GIF as background while it loads */
+    background-size: cover;
+    background-position: center;
 }
 
 /* (01) Brief: tres columnas */
