@@ -14,7 +14,6 @@
 
     <link rel="icon" type="image/svg+xml" href="media/favicon.svg">
 
-    <!-- El orden importa: primero los datos, luego la plantilla -->
     <script defer src="js/proyectos.js"></script>
     <script defer src="js/proyecto.js"></script>
     <script defer src="js/archivo.js"></script>
@@ -27,7 +26,7 @@
     <header class="header header--project section">
         <nav class="header__nav block" aria-label="Principal">
             <a href="index.html" class="header__logo">portfolio</a>
-            <a href="#proyectos" class="header__projects" aria-label="Proyectos">
+            <a href="index.html#preview" class="header__projects" aria-label="Proyectos">
           <svg
             class="header__icon"
             viewBox="0 0 287.1 165.07"
@@ -45,11 +44,10 @@
             <button type="button" class="header__toggle" aria-expanded="false" aria-controls="menu">
                 Menú
             </button>
-            <!-- En escritorio los enlaces van en línea; en tablet y móvil son un desplegable -->
             <div class="header__menu" id="menu">
-                <a href="index.html#laboratorio">Proyectos</a>
+                <a href="proyecto.html?id=001">Proyectos</a>
                 <a href="index.html#sobre-mi">Sobre mí</a>
-                <a href="#contacto">Contacto</a>
+                <a href="index.html#contacto">Contacto</a>
             </div>
         </nav>
     </header>
@@ -87,8 +85,6 @@
                     <div><dt>Año</dt><dd data-campo="anio"></dd></div>
                 </dl>
 
-                <!-- Main media: the YouTube video if the project has one, otherwise the GIF
-                     (its first frame .jpg shows as background while it loads) -->
                 <div class="project-video" data-youtube hidden></div>
                 <img class="project-media" data-media src="" alt="" width="1920" height="1080" />
             </div>
@@ -159,7 +155,7 @@
             </div>
         </section>
 
-        <!-- Contacto (igual que en la home) -->
+        <!-- Contacto -->
 
         <section class="contact section" id="contacto">
             <div class="contact__inner block">
@@ -186,7 +182,7 @@
         </div>
     </footer>
 
-    <!-- Lightbox: enlarged view of the results images (filled by proyecto.js) -->
+    <!-- Lightbox -->
 
     <dialog class="lightbox" data-lightbox aria-label="Imagen ampliada">
         <img class="lightbox__img" data-lightbox-img src="" alt="" />

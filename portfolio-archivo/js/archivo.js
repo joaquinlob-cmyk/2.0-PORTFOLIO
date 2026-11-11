@@ -1,3 +1,16 @@
+/*---Ancla al llegar desde otra página---*/
+
+if (location.hash) {
+    const target = document.querySelector(location.hash);
+
+    if (target) {
+        document.fonts.ready.then(() => {
+            target.scrollIntoView({ behavior: 'instant', block: 'start' });
+        });
+    }
+}
+
+
 /*---Menú desplegable (tablet y móvil)---*/
 
 const header = document.querySelector('.header');
@@ -16,19 +29,16 @@ if (header && menuToggle) {
         setMenu(menuToggle.getAttribute('aria-expanded') !== 'true');
     });
 
-    // Al elegir una sección, el menú se cierra
     menu.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => setMenu(false));
     });
 
-    // Clic fuera del header → cerrar
     document.addEventListener('click', (event) => {
         if (!header.contains(event.target)) {
             setMenu(false);
         }
     });
 
-    // Tecla Escape → cerrar y devolver el foco al botón
     document.addEventListener('keydown', (event) => {
         if (event.key === 'Escape' && header.classList.contains('is-open')) {
             setMenu(false);
@@ -36,7 +46,6 @@ if (header && menuToggle) {
         }
     });
 
-    // Si la pantalla pasa a escritorio con el menú abierto, se reinicia
     window.matchMedia('(min-width: 64.0625rem)').addEventListener('change', (event) => {
         if (event.matches) {
             setMenu(false);
@@ -72,7 +81,6 @@ const preview = document.querySelector('.preview');
 
 if (rows.length > 0 && preview) {
 
-    // Huecos de la vista previa que se rellenan con los datos de cada fila
     const field = (name) => preview.querySelector(`[data-p="${name}"]`);
 
     const gif = preview.querySelector('.preview__media');
@@ -80,8 +88,6 @@ if (rows.length > 0 && preview) {
 
     let current = document.querySelector('.archive__row.is-active');
 
-    // Precarga los pósters (primer fotograma de cada GIF) cuando el navegador está libre:
-    // al cambiar de proyecto se ven al instante mientras carga el vídeo
     const preloadPosters = () => {
         rows.forEach(row => {
             new Image().src = row.dataset.poster;
@@ -116,10 +122,6 @@ if (rows.length > 0 && preview) {
         field('type').textContent = data.type;
         field('year').textContent = data.year;
 
-        // Swap the GIF: first its first frame (already preloaded, so it's instant),
-        // then the GIF once it has fully loaded. Without this, the browser keeps
-        // showing the previous project's GIF while the new one downloads.
-        // With no GIF ("Próximamente"), the poster itself is the image
         gif.classList.toggle('is-contain', data.fit === 'contain');
         gif.src = data.poster;
         gif.alt = data.title;
@@ -127,7 +129,6 @@ if (rows.length > 0 && preview) {
         if (data.gif) {
             const loader = new Image();
             loader.onload = () => {
-                // Only if this project is still the selected one
                 if (current === row) {
                     gif.src = data.gif;
                 }
@@ -135,7 +136,6 @@ if (rows.length > 0 && preview) {
             loader.src = data.gif;
         }
 
-        // Enlace a la página del proyecto (se oculta si aún no tiene página)
         if (data.page) {
             projectLink.href = data.page;
             projectLink.hidden = false;
@@ -143,12 +143,9 @@ if (rows.length > 0 && preview) {
             projectLink.hidden = true;
         }
 
-        // Hand cursor over the GIF only when it leads somewhere
         gif.classList.toggle('is-link', Boolean(data.page));
     }
 
-    // Click (or tap / Enter) on a row: the first one shows its preview,
-    // a second one on the selected row opens the project page
     const canHover = window.matchMedia('(hover: hover)').matches;
 
     rows.forEach(row => {
@@ -160,14 +157,12 @@ if (rows.length > 0 && preview) {
 
             showProject(row);
 
-            // On touch screens the preview may be out of view: bring it in
             if (!canHover) {
                 preview.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         });
     });
 
-    // Clicking the GIF also opens the project (if it has a page)
     gif.addEventListener('click', () => {
         if (!projectLink.hidden) {
             location.href = projectLink.href;

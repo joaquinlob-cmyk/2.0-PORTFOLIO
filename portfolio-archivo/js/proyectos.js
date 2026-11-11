@@ -1,9 +1,4 @@
-/*
-    DATOS DE LOS PROYECTOS
-    Cada objeto es un proyecto. proyecto.html usa estos datos como plantilla.
-    Para añadir uno: copia un bloque { … }, cambia los datos y enlázalo desde la home
-    con proyecto.html?id=EL_ID
-*/
+/*---Datos de los proyectos---*/
 
 const PROYECTOS = [
     {
@@ -17,11 +12,11 @@ const PROYECTOS = [
         software: 'After Effects, Premiere',
         anio: '2025',
 
-        // Main media (GIF + its first frame)
+        // Media
         gif: 'media/gif-1.gif',
         poster: 'media/gif-1.jpg',
 
-        // Full video on YouTube (paste the share link; leave it out if there is none)
+        // YouTube
         youtube: 'https://youtu.be/zC92pebkl14',
 
         // (01) Brief
@@ -29,8 +24,7 @@ const PROYECTOS = [
         porque: 'Escribe aquí qué querías conseguir y por qué elegiste este camino y no otro.',
         publico: 'Escribe aquí a quién va dirigida la pieza y cómo eso influyó en tus decisiones.',
 
-        // (02) Resultado: each image needs its .jpg, .webp and .avif with the same name.
-        //      "texto" is the caption under the image (leave it empty for none)
+        // (02) Resultado
         resultado: [
             { img: 'media/proyecto-1-1.jpg', texto: '' },
             { img: 'media/proyecto-1-2.jpg', texto: '' },
@@ -95,7 +89,6 @@ const PROYECTOS = [
         publico: 'Escribe aquí a quién va dirigido el libro y cómo eso influyó en tus decisiones.',
 
         resultado: [
-            { img: 'media/proyecto-3-1.jpg', texto: '' },
             { img: 'media/proyecto-3-5.jpg', texto: '' },
             { img: 'media/proyecto-3-6.jpg', texto: '' },
             { img: 'media/proyecto-3-7.jpg', texto: '' },

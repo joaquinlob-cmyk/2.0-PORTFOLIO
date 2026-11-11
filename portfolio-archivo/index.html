@@ -35,7 +35,7 @@
     <header class="header section">
       <nav class="header__nav block" aria-label="Principal">
         <a href="#top" class="header__logo">Portfolio</a>
-        <a href="#proyectos" class="header__projects" aria-label="Proyectos">
+        <a href="#preview" class="header__projects" aria-label="Proyectos">
           <svg
             class="header__icon"
             viewBox="0 0 287.1 165.07"
@@ -58,9 +58,8 @@
         >
           Menú
         </button>
-        <!-- En escritorio los enlaces van en línea; en tablet y móvil son un desplegable -->
         <div class="header__menu" id="menu">
-          <a href="#laboratorio">proyectos</a>
+          <a href="proyecto.html?id=001">proyectos</a>
           <a href="#sobre-mi">Sobre mí</a>
           <a href="#contacto">Contacto</a>
         </div>
@@ -187,10 +186,6 @@
               </tr>
             </thead>
             <tbody>
-              <!--
-                            Cada fila guarda los datos de su ficha en atributos data-*.
-                            Para añadir un proyecto: copia una fila, cambia los datos y las imágenes.
-                        -->
               <tr
                 class="archive__row is-active"
                 data-num="001"
@@ -348,7 +343,7 @@
             </tbody>
           </table>
 
-          <!-- Vista previa del proyecto seleccionado (la actualiza archivo.js) -->
+          <!-- Vista previa -->
 
           <article class="preview" id="preview" aria-live="polite">
             <div class="preview__info">
@@ -385,7 +380,6 @@
                 <span class="preview__arrow" aria-hidden="true">→</span>
               </a>
             </div>
-            <!-- The GIF's first frame (.jpg) shows as background while the GIF loads -->
             <img
               class="preview__media is-link"
               src="media/gif-1.gif"

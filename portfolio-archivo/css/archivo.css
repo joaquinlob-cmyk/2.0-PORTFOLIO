@@ -312,7 +312,6 @@ mark {
     text-align: left;
     text-transform: uppercase;
 
-    /* La flecha aparece en la fila activa */
     &::after {
         content: " →";
         opacity: 0;
@@ -365,7 +364,6 @@ mark {
     }
 }
 
-/* "Ver proyecto" button: black, full width, turns red on hover like the contact links */
 .preview__link {
     display: flex;
     justify-content: space-between;
@@ -412,12 +410,10 @@ mark {
     background-size: cover;
     background-position: center;
 
-    /* Hand cursor when clicking it opens the project */
     &.is-link {
         cursor: pointer;
     }
 
-    /* Para "Próximamente": la imagen entera, sin recortar */
     &.is-contain {
         object-fit: contain;
         background-color: var(--color-paper);
@@ -534,15 +530,12 @@ mark {
     isolation: isolate;
     display: block;
     width: fit-content;
-    /* The band runs .3em past the text on the left and .1em on the right;
-       the negative margin keeps the text where it was */
     padding: 0 .1em 0 .3em;
     margin-left: -.3em;
     font: var(--font-huge);
     letter-spacing: -.05em;
     color: var(--color-ink);
 
-    /* Sky GIF behind the text, hidden until the link is active */
     &::before {
         content: "";
         position: absolute;
@@ -560,7 +553,6 @@ mark {
     }
 }
 
-/* While the phone is hovered, the email loses its sky */
 .contact:has(.contact__tel:hover, .contact__tel:focus-visible) .contact__mail::before {
     opacity: 0;
 }
@@ -617,17 +609,14 @@ mark {
 
 @media (max-width: 64rem) {
 
-    /* Header: logo · ojo · botón "Menú" */
     .header__toggle {
         display: block;
     }
 
-    /* En la página de proyecto el ojo se quita: solo logo y "Menú" */
     .header--project .header__projects {
         display: none;
     }
 
-    /* El desplegable cuelga justo debajo del header */
     .header__menu {
         display: flex;
         flex-direction: column;
@@ -639,7 +628,6 @@ mark {
         border-bottom: 1px solid var(--color-ink);
         counter-reset: menu;
 
-        /* Cerrado: recortado hacia arriba e invisible (tampoco recibe el foco) */
         clip-path: inset(0 0 100% 0);
         visibility: hidden;
         transition:
@@ -661,7 +649,6 @@ mark {
             border-bottom: none;
         }
 
-        /* Numeración tipo archivo: 01, 02, 03 */
         & a::after {
             counter-increment: menu;
             content: "0" counter(menu);
@@ -750,9 +737,9 @@ mark {
     }
 }
 
-/* Menos movimiento si el sistema lo pide */
+/* Menos movimiento */
 
-/* Lightbox: enlarged view of the results images */
+/* Lightbox */
 
 .gallery__zoom {
     display: block;
@@ -837,7 +824,6 @@ mark {
     }
 }
 
-/* The page behind doesn't scroll while the lightbox is open */
 html:has(.lightbox[open]) {
     overflow: hidden;
 }
@@ -860,7 +846,6 @@ html:has(.lightbox[open]) {
    PÁGINA DE PROYECTO (proyecto.html)
    ========================================================= */
 
-/* Enlace de la sección actual en el menú */
 .header__nav .is-current {
     background-color: var(--color-ink);
     color: var(--color-paper);
@@ -932,8 +917,6 @@ html:has(.lightbox[open]) {
     grid-template-columns: repeat(4, 1fr);
     text-transform: uppercase;
 
-    /* Cada dato es una columna: el dd crece para que todas las líneas
-       de abajo queden a la misma altura aunque un texto ocupe dos líneas */
     & div {
         display: flex;
         flex-direction: column;
@@ -941,7 +924,6 @@ html:has(.lightbox[open]) {
 
     & dt,
     & dd {
-        /* Separación entre columnas sin cortar las líneas */
         padding-right: var(--space-md);
     }
 
@@ -983,7 +965,7 @@ html:has(.lightbox[open]) {
     background-position: center;
 }
 
-/* (01) Brief: tres columnas */
+/* (01) Brief */
 
 .brief {
     display: grid;
@@ -1019,9 +1001,8 @@ html:has(.lightbox[open]) {
     text-transform: uppercase;
 }
 
-/* (02) Resultado: rejilla de 2 columnas */
+/* (02) Resultado */
 
-/* YouTube video in place of the GIF: narrower than the page so it keeps its quality */
 .project-video {
     max-width: 60rem;
     margin: 1.75rem auto 0;
@@ -1040,19 +1021,16 @@ html:has(.lightbox[open]) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: var(--space-md);
-    /* Same width as the YouTube video, centered */
     max-width: 60rem;
     margin-inline: auto;
     align-items: start;
 }
 
-/* Si hay un número impar de imágenes, la primera ocupa todo el ancho */
 .gallery__item:first-child:nth-last-child(odd) {
     grid-column: 1 / -1;
 }
 
 .gallery__item {
-    /* Whole image at its own proportion (no cropping): screenshots keep their edges */
     & img {
         display: block;
         width: 100%;
@@ -1089,7 +1067,6 @@ html:has(.lightbox[open]) {
         color: var(--color-muted);
     }
 
-    /* Los créditos van a la derecha, alineados con el título "Créditos" */
     & dd {
         text-align: right;
     }
@@ -1141,7 +1118,6 @@ html:has(.lightbox[open]) {
         width: 12rem;
     }
 
-    /* Ficha corta en 2 × 2: Tipo · Rol / Software · Año */
     .facts {
         grid-template-columns: repeat(2, 1fr);
         row-gap: var(--space-lg);
