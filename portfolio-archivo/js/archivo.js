@@ -75,7 +75,7 @@ if (rows.length > 0 && preview) {
     // Huecos de la vista previa que se rellenan con los datos de cada fila
     const field = (name) => preview.querySelector(`[data-p="${name}"]`);
 
-    const video = preview.querySelector('.preview__media');
+    const gif = preview.querySelector('.preview__media');
     const projectLink = preview.querySelector('.preview__link');
 
     let current = document.querySelector('.archive__row.is-active');
@@ -116,16 +116,23 @@ if (rows.length > 0 && preview) {
         field('type').textContent = data.type;
         field('year').textContent = data.year;
 
-        // Cambio del GIF (vídeo en bucle). Si el proyecto no tiene vídeo, se ve solo el póster
-        video.classList.toggle('is-contain', data.fit === 'contain');
-        video.poster = data.poster;
-        video.setAttribute('aria-label', data.title);
+        // Swap the GIF: first its first frame (already preloaded, so it's instant),
+        // then the GIF once it has fully loaded. Without this, the browser keeps
+        // showing the previous project's GIF while the new one downloads.
+        // With no GIF ("Próximamente"), the poster itself is the image
+        gif.classList.toggle('is-contain', data.fit === 'contain');
+        gif.src = data.poster;
+        gif.alt = data.title;
 
-        if (data.video) {
-            video.src = data.video;   // con "autoplay" empieza solo
-        } else {
-            video.removeAttribute('src');
-            video.load();             // vacía el vídeo y deja el póster
+        if (data.gif) {
+            const loader = new Image();
+            loader.onload = () => {
+                // Only if this project is still the selected one
+                if (current === row) {
+                    gif.src = data.gif;
+                }
+            };
+            loader.src = data.gif;
         }
 
         // Enlace a la página del proyecto (se oculta si aún no tiene página)

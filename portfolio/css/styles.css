@@ -280,7 +280,8 @@ mark {
     }
 }
 
-/* Video frame (looping GIF videos) */
+/* Media frame (GIF or looping video)
+   An optional background-image (first frame) fills it while it loads */
 
 .media-frame {
     display: block;
@@ -289,11 +290,14 @@ mark {
     aspect-ratio: var(--ratio-video);
     object-fit: cover;
     background-color: var(--neutral-100);
+    background-size: cover;
+    background-position: center;
 
     /* For "Coming soon": the whole image, uncropped */
     &.is-contain {
         object-fit: contain;
         background-color: var(--white);
+        background-image: none !important;
     }
 
     @media (max-width: 40rem) {

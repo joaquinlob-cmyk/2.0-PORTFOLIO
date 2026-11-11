@@ -63,13 +63,14 @@ if (rows.length > 0 && preview) {
     // Preview slots that get filled with each row's data
     const field = (name) => preview.querySelector(`[data-preview="${name}"]`);
 
-    const video = preview.querySelector('.preview__media');
+    const gif = preview.querySelector('.preview__media');
     const projectLink = preview.querySelector('.preview__link');
 
     let current = document.querySelector('.archive__row.is-active');
 
     // Preload the posters (first frame of each GIF) when the browser is idle,
-    // so switching projects shows them instantly while the video loads
+    // so switching projects shows them instantly while the GIF loads.
+    // The GIFs themselves are not preloaded: they are too heavy
     const preloadPosters = () => {
         rows.forEach(row => {
             new Image().src = row.dataset.poster;
@@ -104,16 +105,22 @@ if (rows.length > 0 && preview) {
         field('type').textContent = data.type;
         field('year').textContent = data.year;
 
-        // Swap the GIF (looping video). With no video, only the poster shows
-        video.classList.toggle('is-contain', data.fit === 'contain');
-        video.poster = data.poster;
-        video.setAttribute('aria-label', data.title);
+        // Swap the GIF: first its first frame (already preloaded, so it's instant),
+        // then the GIF once it has fully loaded. Without this, the browser keeps
+        // showing the previous project's GIF while the new one downloads
+        gif.classList.toggle('is-contain', data.fit === 'contain');
+        gif.src = data.poster;
+        gif.alt = data.title;
 
-        if (data.video) {
-            video.src = data.video;   // "autoplay" starts it on its own
-        } else {
-            video.removeAttribute('src');
-            video.load();             // empties the video and keeps the poster
+        if (data.gif) {
+            const loader = new Image();
+            loader.onload = () => {
+                // Only if this project is still the selected one
+                if (current === row) {
+                    gif.src = data.gif;
+                }
+            };
+            loader.src = data.gif;
         }
 
         // Link to the project page (hidden while it has no page yet)

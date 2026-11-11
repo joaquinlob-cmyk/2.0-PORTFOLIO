@@ -195,7 +195,7 @@
                 class="archive__row is-active"
                 data-num="001"
                 data-title="Meditation attempt"
-                data-video="media/gif-1.mp4"
+                data-gif="media/gif-1.gif"
                 data-poster="media/gif-1.jpg"
                 data-page="proyecto.html?id=001"
                 data-desc="Vídeo experimental que explora la meditación frente al caos urbano y mental. A través del motion graphics, glitches visuales y rupturas del entorno, la pieza construye una narrativa que transita entre la calma, la tensión y el colapso emocional."
@@ -235,7 +235,7 @@
                 class="archive__row"
                 data-num="002"
                 data-title="Nokia 3310 ads"
-                data-video="media/gif-2.mp4"
+                data-gif="media/gif-2.gif"
                 data-poster="media/gif-2.jpg"
                 data-page="proyecto.html?id=002"
                 data-desc="Animación 3D desarrollada en Cinema 4D que enfrenta al icónico Nokia 3310 contra el Mjolnir para poner a prueba su resistencia «indestructible». Con simulaciones de fractura, iluminación cinematográfica y modelado de objetos, la pieza construye una escena épica donde todo colapsa ante el Nokia."
@@ -273,7 +273,7 @@
                 class="archive__row"
                 data-num="003"
                 data-title="Mathrock — book"
-                data-video="media/gif-3.mp4"
+                data-gif="media/gif-3.gif"
                 data-poster="media/gif-3.jpg"
                 data-page="proyecto.html?id=003"
                 data-desc="Proyecto editorial inspirado en el math rock, donde la complejidad rítmica del género se traduce en composiciones dinámicas, tensión tipográfica y una narrativa visual en la que las imágenes predominan sobre el texto."
@@ -311,7 +311,7 @@
                 class="archive__row archive__row--soon"
                 data-num="004"
                 data-title="Próximamente"
-                data-video=""
+                data-gif=""
                 data-poster="media/image-wip.webp"
                 data-fit="contain"
                 data-desc="Nuevo proyecto en proceso. Muy pronto, aquí."
@@ -384,19 +384,15 @@
                 >Ver proyecto →</a
               >
             </div>
-            <video
+            <!-- The GIF's first frame (.jpg) shows as background while the GIF loads -->
+            <img
               class="preview__media"
-              src="media/gif-1.mp4"
-              poster="media/gif-1.jpg"
-              autoplay
-              muted
-              loop
-              playsinline
-              preload="auto"
-              width="926"
-              height="678"
-              aria-label="Meditation attempt"
-            ></video>
+              src="media/gif-1.gif"
+              style="background-image: url(media/gif-1.jpg)"
+              alt="Meditation attempt"
+              width="1920"
+              height="1080"
+            />
           </article>
         </div>
       </section>

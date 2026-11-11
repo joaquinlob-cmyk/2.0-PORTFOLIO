@@ -401,11 +401,15 @@ mark {
     aspect-ratio: 16 / 7.4;
     object-fit: cover;
     background-color: #F3F3F3;
+    /* First frame of the GIF as background while it loads */
+    background-size: cover;
+    background-position: center;
 
     /* Para "Próximamente": la imagen entera, sin recortar */
     &.is-contain {
         object-fit: contain;
         background-color: var(--color-paper);
+        background-image: none !important;
     }
 }
 
