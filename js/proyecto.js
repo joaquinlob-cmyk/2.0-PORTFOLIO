@@ -73,9 +73,9 @@ function fillProject(data) {
     const videoId = getYouTubeId(data.youtube);
 
     if (!videoId) {
-        media.style.backgroundImage = `url(${data.poster})`;
-        media.src = data.gif;
-        media.alt = data.titulo;
+        media.poster = data.poster;
+        media.src = data.video;
+        media.setAttribute('aria-label', data.titulo);
     } else {
         media.remove();
 

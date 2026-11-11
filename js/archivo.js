@@ -102,7 +102,7 @@ if (rows.length > 0 && preview) {
 
     const field = (name) => preview.querySelector(`[data-p="${name}"]`);
 
-    const gif = preview.querySelector('.preview__media');
+    const video = preview.querySelector('.preview__media');
     const projectLink = preview.querySelector('.preview__link');
 
     let current = document.querySelector('.archive__row.is-active');
@@ -141,18 +141,15 @@ if (rows.length > 0 && preview) {
         field('type').textContent = data.type;
         field('year').textContent = data.year;
 
-        gif.classList.toggle('is-contain', data.fit === 'contain');
-        gif.src = data.poster;
-        gif.alt = data.title;
+        video.classList.toggle('is-contain', data.fit === 'contain');
+        video.poster = data.poster;
+        video.setAttribute('aria-label', data.title);
 
-        if (data.gif) {
-            const loader = new Image();
-            loader.onload = () => {
-                if (current === row) {
-                    gif.src = data.gif;
-                }
-            };
-            loader.src = data.gif;
+        if (data.video) {
+            video.src = data.video;
+        } else {
+            video.removeAttribute('src');
+            video.load();
         }
 
         if (data.page) {
@@ -162,7 +159,7 @@ if (rows.length > 0 && preview) {
             projectLink.hidden = true;
         }
 
-        gif.classList.toggle('is-link', Boolean(data.page));
+        video.classList.toggle('is-link', Boolean(data.page));
     }
 
     const canHover = window.matchMedia('(hover: hover)').matches;
@@ -182,7 +179,7 @@ if (rows.length > 0 && preview) {
         });
     });
 
-    gif.addEventListener('click', () => {
+    video.addEventListener('click', () => {
         if (!projectLink.hidden) {
             location.href = projectLink.href;
         }

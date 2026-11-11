@@ -536,24 +536,26 @@ mark {
     letter-spacing: -.05em;
     color: var(--color-ink);
 
-    &::before {
-        content: "";
+    & .contact__sky {
         position: absolute;
         inset: 0;
         z-index: -1;
-        background: url(../media/Sky.gif) center / cover no-repeat;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
         opacity: 0;
+        pointer-events: none;
         transition: opacity .25s ease;
     }
 
-    &.is-active::before,
-    &:hover::before,
-    &:focus-visible::before {
+    &.is-active .contact__sky,
+    &:hover .contact__sky,
+    &:focus-visible .contact__sky {
         opacity: 1;
     }
 }
 
-.contact:has(.contact__tel:hover, .contact__tel:focus-visible) .contact__mail::before {
+.contact:has(.contact__tel:hover, .contact__tel:focus-visible) .contact__mail .contact__sky {
     opacity: 0;
 }
 

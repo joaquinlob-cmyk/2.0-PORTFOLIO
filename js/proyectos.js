@@ -13,7 +13,7 @@ const PROYECTOS = [
         anio: '2025',
 
         // Media
-        gif: 'media/gif-1.gif',
+        video: 'media/gif-1.mp4',
         poster: 'media/gif-1.jpg',
 
         // YouTube
@@ -49,7 +49,7 @@ const PROYECTOS = [
         software: 'Cinema 4D',
         anio: '2025',
 
-        gif: 'media/gif-2.gif',
+        video: 'media/gif-2.mp4',
         poster: 'media/gif-2.jpg',
         youtube: 'https://youtu.be/zRXTnTkUg80',
 
@@ -81,7 +81,7 @@ const PROYECTOS = [
         software: 'InDesign',
         anio: '2026',
 
-        gif: 'media/gif-3.gif',
+        video: 'media/gif-3.mp4',
         poster: 'media/gif-3.jpg',
 
         contexto: 'Proyecto editorial inspirado en el math rock, donde la complejidad rítmica del género se traduce en composiciones dinámicas, tensión tipográfica y una narrativa visual en la que las imágenes predominan sobre el texto.',
