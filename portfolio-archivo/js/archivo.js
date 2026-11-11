@@ -142,41 +142,35 @@ if (rows.length > 0 && preview) {
         } else {
             projectLink.hidden = true;
         }
+
+        // Hand cursor over the GIF only when it leads somewhere
+        gif.classList.toggle('is-link', Boolean(data.page));
     }
 
-    // Ratón con hover: se actualiza al pasar por encima
+    // Click (or tap / Enter) on a row: the first one shows its preview,
+    // a second one on the selected row opens the project page
     const canHover = window.matchMedia('(hover: hover)').matches;
 
     rows.forEach(row => {
-        if (canHover) {
-            row.addEventListener('mouseenter', () => showProject(row));
-        }
-
         row.addEventListener('click', () => {
-            // Con ratón: el clic abre la página del proyecto (la vista previa ya se vio al pasar por encima).
-            // En móvil: el primer toque muestra la vista previa y el segundo abre el proyecto.
-            if ((canHover || row === current) && row.dataset.page) {
+            if (row === current && row.dataset.page) {
                 location.href = row.dataset.page;
                 return;
             }
 
             showProject(row);
 
-            // En móvil, la vista previa queda debajo de la tabla: la llevamos a la vista
+            // On touch screens the preview may be out of view: bring it in
             if (!canHover) {
                 preview.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         });
+    });
 
-        // Teclado: al llegar con Tab al botón de una fila, se muestra su vista previa
-        // (solo con teclado: con ratón o dedo el foco no debe adelantarse al clic)
-        const button = row.querySelector('.archive__btn');
-        if (button) {
-            button.addEventListener('focus', () => {
-                if (button.matches(':focus-visible')) {
-                    showProject(row);
-                }
-            });
+    // Clicking the GIF also opens the project (if it has a page)
+    gif.addEventListener('click', () => {
+        if (!projectLink.hidden) {
+            location.href = projectLink.href;
         }
     });
 }

@@ -87,7 +87,9 @@
                     <div><dt>Año</dt><dd data-campo="anio"></dd></div>
                 </dl>
 
-                <!-- Main GIF: its first frame (.jpg) shows as background while it loads -->
+                <!-- Main media: the YouTube video if the project has one, otherwise the GIF
+                     (its first frame .jpg shows as background while it loads) -->
+                <div class="project-video" data-youtube hidden></div>
                 <img class="project-media" data-media src="" alt="" width="1920" height="1080" />
             </div>
         </section>
@@ -124,8 +126,8 @@
         <section class="section" id="resultado">
             <div class="block">
                 <div class="section__head">
-                    <h2>(02) Resultado</h2>
-                    <span>Piezas finales</span>
+                    <h2>(02) Proceso</h2>
+                    <span>y Piezas finales</span>
                 </div>
                 <div class="gallery" data-resultado></div>
             </div>
@@ -183,6 +185,20 @@
             </div>
         </div>
     </footer>
+
+    <!-- Lightbox: enlarged view of the results images (filled by proyecto.js) -->
+
+    <dialog class="lightbox" data-lightbox aria-label="Imagen ampliada">
+        <img class="lightbox__img" data-lightbox-img src="" alt="" />
+        <div class="lightbox__bar">
+            <span data-lightbox-count></span>
+            <div class="lightbox__nav">
+                <button type="button" class="lightbox__btn" data-lightbox-prev>← Anterior</button>
+                <button type="button" class="lightbox__btn" data-lightbox-next>Siguiente →</button>
+                <button type="button" class="lightbox__btn" data-lightbox-close>Cerrar ×</button>
+            </div>
+        </div>
+    </dialog>
 
 </body>
 

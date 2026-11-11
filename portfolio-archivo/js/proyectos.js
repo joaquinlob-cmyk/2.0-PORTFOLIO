@@ -21,18 +21,21 @@ const PROYECTOS = [
         gif: 'media/gif-1.gif',
         poster: 'media/gif-1.jpg',
 
+        // Full video on YouTube (paste the share link; leave it out if there is none)
+        youtube: 'https://youtu.be/zC92pebkl14',
+
         // (01) Brief
         contexto: 'Vídeo experimental que explora la meditación frente al caos urbano y mental. A través del motion graphics, glitches visuales y rupturas del entorno, la pieza construye una narrativa que transita entre la calma, la tensión y el colapso emocional.',
         porque: 'Escribe aquí qué querías conseguir y por qué elegiste este camino y no otro.',
         publico: 'Escribe aquí a quién va dirigida la pieza y cómo eso influyó en tus decisiones.',
 
-        // (02) Resultado
+        // (02) Resultado: each image needs its .jpg, .webp and .avif with the same name.
+        //      "texto" is the caption under the image (leave it empty for none)
         resultado: [
-            { img: 'media/gif-1.jpg', texto: 'Fotograma' },
-            { img: 'media/image-1.jpg', texto: 'Collage' },
-            { img: 'media/image-1.jpg', texto: 'Collage' },
-            { img: 'media/image-1.jpg', texto: 'Collage' },
-            { img: 'media/image-1.jpg', texto: 'Collage' }
+            { img: 'media/proyecto-1-1.jpg', texto: '' },
+            { img: 'media/proyecto-1-2.jpg', texto: '' },
+            { img: 'media/proyecto-1-3.jpg', texto: '' },
+            { img: 'media/proyecto-1-4.jpg', texto: '' }
         ],
 
         // (03) Ficha técnica
@@ -54,15 +57,18 @@ const PROYECTOS = [
 
         gif: 'media/gif-2.gif',
         poster: 'media/gif-2.jpg',
+        youtube: 'https://youtu.be/zRXTnTkUg80',
 
         contexto: 'Animación 3D desarrollada en Cinema 4D que enfrenta al icónico Nokia 3310 contra el Mjolnir para poner a prueba su resistencia «indestructible». Con simulaciones de fractura, iluminación cinematográfica y modelado de objetos, la pieza construye una escena épica donde todo colapsa ante el Nokia.',
         porque: 'Escribe aquí qué querías conseguir y por qué elegiste este camino y no otro.',
         publico: 'Escribe aquí a quién va dirigida la pieza y cómo eso influyó en tus decisiones.',
 
         resultado: [
-            { img: 'media/gif-2.jpg', texto: 'Fotograma' },
-            { img: 'media/image-2.jpg', texto: 'Render' },
-            
+            { img: 'media/proyecto-2-1.jpg', texto: '' },
+            { img: 'media/proyecto-2-2.jpg', texto: '' },
+            { img: 'media/proyecto-2-3.jpg', texto: '' },
+            { img: 'media/proyecto-2-4.jpg', texto: '' },
+            { img: 'media/proyecto-2-5.jpg', texto: '' }
         ],
 
         ficha: [
@@ -89,11 +95,11 @@ const PROYECTOS = [
         publico: 'Escribe aquí a quién va dirigido el libro y cómo eso influyó en tus decisiones.',
 
         resultado: [
-            { img: 'media/image-3.jpg', texto: '' },
-            { img: 'media/gif-3.jpg', texto: '' },
-            { img: 'media/gif-3.jpg', texto: '' },
-            { img: 'media/gif-3.jpg', texto: '' },
-            { img: 'media/gif-3.jpg', texto: '' }
+            { img: 'media/proyecto-3-1.jpg', texto: '' },
+            { img: 'media/proyecto-3-5.jpg', texto: '' },
+            { img: 'media/proyecto-3-6.jpg', texto: '' },
+            { img: 'media/proyecto-3-7.jpg', texto: '' },
+            { img: 'media/proyecto-3-8.jpg', texto: '' }
         ],
 
         ficha: [
