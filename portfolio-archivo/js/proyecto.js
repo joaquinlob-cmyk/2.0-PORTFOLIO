@@ -21,7 +21,10 @@ function showLightboxImage(index) {
 function openLightbox(index) {
     showLightboxImage(index);
     lightbox.showModal();
+    window.lenis?.stop();
 }
+
+lightbox.addEventListener('close', () => window.lenis?.start());
 
 function updateLightboxNav() {
     const single = document.querySelectorAll('.gallery__item img').length < 2;

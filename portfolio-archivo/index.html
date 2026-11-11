@@ -11,6 +11,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.23/dist/lenis.css" />
     <link rel="stylesheet" href="css/archivo.css" />
     <link
       rel="stylesheet"
@@ -19,6 +20,13 @@
 
     <link rel="icon" type="image/svg+xml" href="media/favicon.svg" />
 
+    <script>
+      if (location.hash) {
+        window.scrollTarget = location.hash;
+        history.replaceState(null, '', location.pathname + location.search);
+      }
+    </script>
+    <script defer src="https://unpkg.com/lenis@1.3.23/dist/lenis.min.js"></script>
     <script defer src="js/archivo.js"></script>
 
     <meta property="og:type" content="website" />

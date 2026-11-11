@@ -1,13 +1,32 @@
+/*---Smooth scroll (Lenis)---*/
+
+const headerOffset = -((document.querySelector('.header')?.offsetHeight || 0) + 16);
+
+if (typeof Lenis !== 'undefined') {
+    window.lenis = new Lenis({
+        autoRaf: true,
+        lerp: 0.1,
+        anchors: { offset: headerOffset }
+    });
+}
+
+
 /*---Ancla al llegar desde otra página---*/
 
-if (location.hash) {
-    const target = document.querySelector(location.hash);
+const arrivalTarget = window.scrollTarget && document.querySelector(window.scrollTarget);
 
-    if (target) {
-        document.fonts.ready.then(() => {
-            target.scrollIntoView({ behavior: 'instant', block: 'start' });
-        });
-    }
+if (arrivalTarget) {
+    history.replaceState(null, '', location.pathname + location.search + window.scrollTarget);
+
+    document.fonts.ready.then(() => {
+        setTimeout(() => {
+            if (window.lenis) {
+                window.lenis.scrollTo(arrivalTarget, { offset: headerOffset, duration: 1.4 });
+            } else {
+                arrivalTarget.scrollIntoView({ behavior: 'smooth' });
+            }
+        }, 250);
+    });
 }
 
 
