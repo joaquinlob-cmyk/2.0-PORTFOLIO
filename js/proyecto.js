@@ -64,8 +64,28 @@ function fillProject(data) {
 
     document.title = `${data.titulo} — Joaquín Lobos`;
 
+    const withBold = (text) => text
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+
     document.querySelectorAll('[data-campo]').forEach(element => {
-        element.textContent = data[element.dataset.campo] || '';
+        element.innerHTML = withBold(data[element.dataset.campo] || '');
+    });
+
+    const title = document.querySelector('.project-title__name');
+    title.textContent = '';
+
+    data.titulo.split(' ').forEach((word, index) => {
+        const outer = document.createElement('span');
+        const inner = document.createElement('span');
+        outer.className = 'hero__w';
+        inner.className = 'hero__wi';
+        inner.style.setProperty('--i', index + 1);
+        inner.textContent = word;
+        outer.appendChild(inner);
+        title.append(outer, ' ');
     });
 
     const media = document.querySelector('[data-media]');
@@ -122,7 +142,18 @@ function fillProject(data) {
         const row = document.createElement('div');
         row.innerHTML = '<dt></dt><dd></dd>';
         row.querySelector('dt').textContent = item.campo;
-        row.querySelector('dd').textContent = item.valor;
+        const value = row.querySelector('dd');
+
+        if (item.url) {
+            const link = document.createElement('a');
+            link.href = item.url;
+            link.target = '_blank';
+            link.rel = 'noopener';
+            link.textContent = `${item.valor} ↗`;
+            value.appendChild(link);
+        } else {
+            value.textContent = item.valor;
+        }
         sheet.appendChild(row);
     });
 
