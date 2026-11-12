@@ -119,6 +119,9 @@ const PROYECTOS = [
         video: 'media/gif-4.mp4',
         poster: 'media/gif-4.jpg',
 
+        // Web
+        web: 'https://joaquinlob.alexadefig.com',
+
         contexto: 'Proyecto final del módulo de **Diseño web con WordPress** del CEI Valencia. Okʷ- studio es una **productora audiovisual ficticia** de Valencia que hace vídeo para empresas: corporativos, spots, eventos, formación y redes sociales. Como una productora vive de mostrar su trabajo, era el caso ideal para una **web corporativa con portfolio**.',
         porque: 'Quería una web que **convenciera de pedir presupuesto**. La estética parte de una **sala de cine y un plató**: fondo casi negro, fotografía a sangre y un único acento, el **rojo del piloto «REC»**, todo definido como sistema global en Elementor. Cada trabajo es un **Custom Post Type con campos ACF**, filtrable por tipo de vídeo. El sitio se construyó **dirigiendo a una IA (Claude)** dentro de WordPress, sin escribir código.',
         publico: 'Pensada para **responsables de marketing, comunicación y RR. HH.** de pymes y empresas medianas que necesitan **vídeo profesional sin tener equipo propio**. Por eso los trabajos son los protagonistas, hay **llamadas a la acción en todas las páginas** con un formulario de presupuesto, y un **blog de consejos** que genera confianza.',

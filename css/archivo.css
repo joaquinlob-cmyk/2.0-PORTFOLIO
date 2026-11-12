@@ -457,6 +457,12 @@ mark {
         height: auto;
         aspect-ratio: 3 / 2;
         object-fit: cover;
+        transition: filter .3s ease;
+    }
+
+    & .lab__link:hover img,
+    & .lab__link:focus-visible img {
+        filter: brightness(.5);
     }
 
     & figcaption {
@@ -497,6 +503,31 @@ mark {
     display: flex;
     flex-direction: column;
     gap: var(--space-lg);
+    align-self: stretch;
+
+    & strong {
+        font-weight: 600;
+    }
+}
+
+.about__download {
+    margin-top: auto;
+
+    &:hover .preview__arrow,
+    &:focus-visible .preview__arrow {
+        transform: translateY(.2rem);
+    }
+}
+
+.about__label {
+    font: var(--font-xs);
+    color: var(--color-muted);
+    text-transform: uppercase;
+    margin-bottom: var(--space-sm);
+
+    .cv + & {
+        margin-top: var(--space-lg);
+    }
 }
 
 .cv {
@@ -505,7 +536,7 @@ mark {
 
     & div {
         display: grid;
-        grid-template-columns: 6.5rem 1fr;
+        grid-template-columns: 7.5rem 1fr;
         gap: var(--space-sm);
         padding: .5rem 0;
         border-top: 1px solid var(--color-line);
@@ -683,7 +714,7 @@ mark {
     .about {
         grid-template-columns: 14rem 1fr;
     }
-    .cv {
+    .about__sheet {
         grid-column: 1/-1;
     }
 
@@ -1006,6 +1037,59 @@ html:has(.lightbox[open]) {
     margin-bottom: 1.125rem;
     font: var(--font-xs);
     text-transform: uppercase;
+}
+
+/* Enlace a la web del proyecto */
+
+.project-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-md);
+    max-width: 60rem;
+    margin: var(--space-md) auto 0;
+    padding: .875rem var(--space-md);
+    font: var(--font-sm);
+    font-weight: 500;
+    text-transform: uppercase;
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    border: 1px solid var(--color-ink);
+    transition: background-color .25s, color .25s;
+
+    &[hidden] {
+        display: none;
+    }
+
+    &:hover,
+    &:focus-visible {
+        background-color: var(--color-ink);
+        color: var(--color-paper);
+    }
+}
+
+.project-link__label {
+    white-space: nowrap;
+}
+
+.project-link__url {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: right;
+    text-transform: none;
+}
+
+.project-link__arrow {
+    display: inline-block;
+    transition: transform .25s cubic-bezier(.2, .7, .1, 1);
+
+    .project-link:hover &,
+    .project-link:focus-visible & {
+        transform: translate(.2em, -.2em);
+    }
 }
 
 /* (02) Resultado */

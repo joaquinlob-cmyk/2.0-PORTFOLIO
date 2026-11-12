@@ -109,6 +109,13 @@ function fillProject(data) {
         videoBox.hidden = false;
     }
 
+    const webLink = document.querySelector('[data-web]');
+    if (data.web) {
+        webLink.href = data.web;
+        webLink.querySelector('[data-web-url]').textContent = data.web.replace(/^https?:\/\//, '').replace(/\/$/, '');
+        webLink.hidden = false;
+    }
+
     const gallery = document.querySelector('[data-resultado]');
     data.resultado.forEach((item, i) => {
         const base = item.img.replace(/\.jpg$/, '');
