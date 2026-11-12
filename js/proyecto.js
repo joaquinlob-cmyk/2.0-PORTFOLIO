@@ -99,13 +99,24 @@ function fillProject(data) {
     } else {
         media.remove();
 
-        const iframe = document.createElement('iframe');
-        iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?rel=0`;
-        iframe.title = data.titulo;
-        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
-        iframe.referrerPolicy = 'strict-origin-when-cross-origin';
-        iframe.allowFullscreen = true;
-        videoBox.appendChild(iframe);
+        const play = document.createElement('button');
+        play.type = 'button';
+        play.className = 'project-video__play';
+        play.setAttribute('aria-label', `Reproducir video: ${data.titulo}`);
+        play.innerHTML = '<img alt=""><span>▶ Reproducir</span>';
+        play.querySelector('img').src = data.poster;
+
+        play.addEventListener('click', () => {
+            const iframe = document.createElement('iframe');
+            iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?rel=0&autoplay=1`;
+            iframe.title = data.titulo;
+            iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+            iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+            iframe.allowFullscreen = true;
+            play.replaceWith(iframe);
+        }, { once: true });
+
+        videoBox.appendChild(play);
         videoBox.hidden = false;
     }
 
@@ -129,8 +140,9 @@ function fillProject(data) {
                     <img src="${item.img}" alt="" loading="lazy">
                 </picture>
             </button>`;
-        figure.querySelector('.gallery__zoom').setAttribute('aria-label', `Ampliar imagen ${i + 1}`);
-        figure.querySelector('.gallery__zoom').addEventListener('click', () => openLightbox(i));
+        const zoom = figure.querySelector('.gallery__zoom');
+        zoom.setAttribute('aria-label', `Ampliar imagen ${i + 1}`);
+        zoom.addEventListener('click', () => openLightbox(i));
         figure.querySelector('img').alt = item.texto || `${data.titulo} — imagen ${i + 1}`;
 
         if (item.texto) {

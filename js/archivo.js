@@ -73,26 +73,6 @@ if (header && menuToggle) {
 }
 
 
-/*---Reloj de Valencia---*/
-
-const clock = document.querySelector('[data-clock]');
-
-if (clock) {
-    const timeFormat = new Intl.DateTimeFormat('es-ES', {
-        hour: '2-digit',
-        minute: '2-digit',
-        timeZone: 'Europe/Madrid'
-    });
-
-    const updateClock = () => {
-        clock.textContent = timeFormat.format(new Date());
-    };
-
-    updateClock();
-    setInterval(updateClock, 15000);
-}
-
-
 /*---Tabla de proyectos + vista previa---*/
 
 const rows = document.querySelectorAll('.archive__row');
@@ -133,13 +113,9 @@ if (rows.length > 0 && preview) {
 
         const data = row.dataset;
 
-        field('num').textContent = data.num;
-        field('title').textContent = data.title;
-        field('desc').textContent = data.desc;
-        field('role').textContent = data.role;
-        field('software').textContent = data.software;
-        field('type').textContent = data.type;
-        field('year').textContent = data.year;
+        ['num', 'title', 'desc', 'role', 'software', 'type', 'year'].forEach(name => {
+            field(name).textContent = data[name];
+        });
 
         video.classList.toggle('is-contain', data.fit === 'contain');
         video.poster = data.poster;
@@ -154,11 +130,8 @@ if (rows.length > 0 && preview) {
 
         if (data.page) {
             projectLink.href = data.page;
-            projectLink.hidden = false;
-        } else {
-            projectLink.hidden = true;
         }
-
+        projectLink.hidden = !data.page;
         video.classList.toggle('is-link', Boolean(data.page));
     }
 
@@ -186,6 +159,8 @@ if (rows.length > 0 && preview) {
     });
 }
 
+
+/*---Contacto---*/
 
 const contactLinks = document.querySelectorAll('.contact__big');
 

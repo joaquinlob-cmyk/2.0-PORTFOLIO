@@ -1,3 +1,28 @@
+@font-face {
+    font-family: "IBM Plex Mono";
+    src: url("../fonts/IBM_Plex_Mono/IBMPlexMono-Regular.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "IBM Plex Mono";
+    src: url("../fonts/IBM_Plex_Mono/IBMPlexMono-Medium.woff") format("woff");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "IBM Plex Mono";
+    src: url("../fonts/IBM_Plex_Mono/IBMPlexMono-SemiBold.woff") format("woff");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+
 :root {
     /* Colors */
     --color-ink: #111111;
@@ -58,7 +83,6 @@ img {
 a {
     color: inherit;
     text-decoration: none;
-
 }
 
 button {
@@ -124,11 +148,6 @@ mark {
     font: var(--font-xs);
     text-transform: uppercase;
     border-bottom: 1px solid var(--color-ink);
-    
-
-    & a {
-        transition: opacity .2s;
-    }
 
     & a:hover {
         background-color: var(--color-ink);
@@ -139,12 +158,7 @@ mark {
 .header__projects {
     display: inline-flex;
     align-items: center;
-
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-top: 1px;
-    padding-bottom: 1px;
-    
+    padding: 1px 1rem;
 }
 
 .header__icon {
@@ -159,7 +173,6 @@ mark {
 
 .header__toggle {
     display: none;
-    font: inherit;
     text-transform: uppercase;
     padding-inline: .25rem;
 
@@ -178,9 +191,7 @@ mark {
     }
 }
 
-/* Intro */
-
-/* ---------------------------------Hero tipográfico--------------------------------- */
+/* Intro: hero tipográfico */
 
 .hero {
     padding-bottom: 4rem;
@@ -194,12 +205,10 @@ mark {
     text-align-last: justify;
 
     & .hero__s {
-        font-family: var(--font-serif);
         letter-spacing: -.01em;
     }
 
     & b {
-        font-family: var(--font-sans);
         font-weight: 800;
         letter-spacing: -.03em;
     }
@@ -262,23 +271,20 @@ mark {
     & th:first-child,
     & td:first-child {
         width: 4rem;
+        padding-left: .75rem;
     }
 
     & th:nth-child(2),
     & td:nth-child(2) {
         width: 7rem;
     }
+
+    & th:last-child,
+    & td:last-child {
+        padding-right: .75rem;
+    }
 }
 
-.archive th:first-child,
-.archive td:first-child {
-    padding-left: .75rem;
-}
-
-.archive th:last-child,
-.archive td:last-child {
-    padding-right: .75rem;
-}
 .archive__year {
     text-align: right;
     width: 0rem;
@@ -292,15 +298,14 @@ mark {
 
 .archive__row {
     cursor: pointer;
-    transition: background-color .2s;
 
     &:hover td {
         background-color: #F3F3F3;
     }
 
     &.is-active td {
-    background-color: var(--color-ink);
-    color: var(--color-paper);
+        background-color: var(--color-ink);
+        color: var(--color-paper);
     }
 }
 
@@ -330,9 +335,11 @@ mark {
     grid-template-columns: 1fr 2fr;
     gap: var(--space-lg);
     margin-top: var(--space-lg);
-    
 }
 
+.preview__info {
+    align-self: end;
+}
 
 .preview__title {
     font: var(--font-sm);
@@ -375,7 +382,7 @@ mark {
     text-transform: uppercase;
     background-color: var(--color-paper);
     color: var(--color-ink);
-    border: 1px solid ;
+    border: 1px solid;
     transition: background-color .25s, color .25s;
 
     &[hidden] {
@@ -407,8 +414,6 @@ mark {
     aspect-ratio: 16 / 7.4;
     object-fit: cover;
     background-color: #F3F3F3;
-    background-size: cover;
-    background-position: center;
 
     &.is-link {
         cursor: pointer;
@@ -417,7 +422,6 @@ mark {
     &.is-contain {
         object-fit: contain;
         background-color: var(--color-paper);
-        background-image: none !important;
     }
 }
 
@@ -440,9 +444,6 @@ mark {
     }
 }
 
-.preview__info {
-    align-self: end;
-}
 /* Laboratorio */
 
 .lab {
@@ -589,20 +590,6 @@ mark {
 .contact:has(.contact__tel:hover, .contact__tel:focus-visible) .contact__mail .contact__sky {
     opacity: 0;
 }
-
-.contact__tel {
-    color: var(--color-ink);
-    transition:
-        background-color .25s ease,
-        color .25s ease,
-        box-shadow .25s ease;
-
-
-    &:hover {
-        color: var(--color-ink);
-    }
-}
-
 
 /* Footer */
 
@@ -761,25 +748,17 @@ mark {
     .footer__inner {
         flex-direction: column;
     }
-    .footer__left{
-        width: 100%;
-    }
-    .footer__right{
-        width: 100%;
 
+    .footer__left {
+        width: 100%;
     }
 }
-
-/* Menos movimiento */
 
 /* Lightbox */
 
 .gallery__zoom {
     display: block;
     width: 100%;
-    padding: 0;
-    border: 0;
-    background: none;
     cursor: zoom-in;
 
     & img {
@@ -839,12 +818,8 @@ mark {
 
 .lightbox__btn {
     padding: .25rem .375rem;
-    font: inherit;
     text-transform: uppercase;
     color: var(--color-paper);
-    background: none;
-    border: 0;
-    cursor: pointer;
 
     &:hover,
     &:focus-visible {
@@ -860,6 +835,8 @@ mark {
 html:has(.lightbox[open]) {
     overflow: hidden;
 }
+
+/* Menos movimiento */
 
 @media (prefers-reduced-motion: reduce) {
 
@@ -878,11 +855,6 @@ html:has(.lightbox[open]) {
 /* =========================================================
    PÁGINA DE PROYECTO (proyecto.html)
    ========================================================= */
-
-.header__nav .is-current {
-    background-color: var(--color-ink);
-    color: var(--color-paper);
-}
 
 /* Migas + anterior / siguiente */
 
@@ -995,8 +967,6 @@ html:has(.lightbox[open]) {
     object-fit: cover;
     margin: 1.75rem auto 0;
     background-color: #F3F3F3;
-    background-size: cover;
-    background-position: center;
 }
 
 /* (01) Brief */
@@ -1092,7 +1062,7 @@ html:has(.lightbox[open]) {
     }
 }
 
-/* (02) Resultado */
+/* Vídeo de YouTube (clic para reproducir) */
 
 .project-video {
     max-width: 60rem;
@@ -1107,6 +1077,46 @@ html:has(.lightbox[open]) {
         background-color: var(--color-ink);
     }
 }
+
+.project-video__play {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: var(--color-ink);
+
+    & img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: filter .3s ease;
+    }
+
+    & span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+        padding: .625rem 1rem;
+        font: var(--font-sm);
+        color: var(--color-ink);
+        background-color: var(--color-paper);
+        transition: background-color .25s ease, color .25s ease;
+    }
+
+    &:hover img,
+    &:focus-visible img {
+        filter: brightness(.5);
+    }
+
+    &:hover span,
+    &:focus-visible span {
+        color: var(--color-paper);
+        background-color: var(--color-red);
+    }
+}
+
+/* (02) Resultado */
 
 .gallery {
     display: grid;
@@ -1123,7 +1133,6 @@ html:has(.lightbox[open]) {
 
 .gallery__item {
     & img {
-        display: block;
         width: 100%;
         height: auto;
     }
